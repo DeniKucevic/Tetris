@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { createGlobalStyle } from "styled-components";
+import GamePage from "./pages/GamePage";
+import MarioKart from "./assets/fonts/MarioKart.ttf";
+import Open24 from "./assets/fonts/Open24.ttf";
+import ka1 from "./assets/fonts/ka1.ttf";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0px;
+    padding: 0px;
+  }
+  html {
+    margin: 0px;
+    padding: 0px;
+  }
+  *{
+    @font-face {
+    font-family: Mario Kart;
+    font-style: normal;
+    src: url(${MarioKart})format('truetype');
+  }
+  @font-face {
+    font-family: Open24;
+    font-style: normal;
+    src: url(${Open24})format('truetype');
+  }
+  @font-face {
+    font-family: ka1;
+    font-style: normal;
+    src: url(${ka1})format('truetype');
+  }
+  }
+`;
+
+const App: React.FC = () => (
+  <div className="App">
+    <GlobalStyle />
+    <GamePage />
+  </div>
+);
 
 export default App;
